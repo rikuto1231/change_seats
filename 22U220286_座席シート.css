@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+h1 {
+    background: #00e2cf;
+    padding: 0.2em;
+}
+
+th,td {
+    border: solid 1px;          /* 枠線指定 */
+    background-color: #00e2cf;  /* 背景色指定 */
+}
+ 
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: separate;  /* 表の線と線の間を空ける */
+    background-color: #cdefff;  /* 背景色指定 */
+    border-spacing: 20px;       /* 表の線と線の間の幅 */
+}
+
+hr {
+    border-style: none;
+    border-top: 4px solid #00e2cf;
+}
+
+#Button1 {
+    width: 10em;
+    height:3em;
+    background-color: #00e2cf;
+}
+#Button2 {
+    width: 10em;
+    height:3em;
+    background-color: #00e2cf;
+}
+
+#lineText {
+    width: 10em;
+    height:3em;
+}
+
+#columnText {
+    width: 10em;
+    height:3em;
+}
+
+#ninsum {
+    width: 10em;
+    height: 2.3em;
+}
+
+#gyou {
+    font-size: 1.2em;
+}
+
+#retu {
+    font-size: 1.2em;
+}
+
+#nin {
+    font-size: 1.2em;
+}

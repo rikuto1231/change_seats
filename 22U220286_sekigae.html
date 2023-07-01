@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>席替え</title>
+    <link rel="stylesheet" type="text/css" href="座席シート.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+</head>
+<body>
+        <h1 style="text-align:center;">席替え</h1>
+
+        <form name = "form1">
+            <p style="text-align:center;">
+            <label>クラス名：<input type="text" id="nameText"></label>
+            </p>
+            <hr>
+                <p style="text-align:center;">
+                    <label id = "gyou">行:
+                        <select name="Line" id="lineText">
+                            <option value="1">1
+                            <option value="2">2
+                            <option value="3">3
+                            <option value="4">4
+                            <option value="5"selected>5
+                            <option value="6">6
+                            <option value="7">7
+                            <option value="8">8
+                        </select>
+                    </label>
+                
+                    <label id ="retu">列:
+                        <select name="column" id="columnText">
+                            <option value="1">1
+                            <option value="2">2
+                            <option value="3">3
+                            <option value="4">4
+                            <option value="5">5
+                            <option value="6">6
+                            <option value="7">7
+                            <option value="8"selected>8
+                        </select>
+                    </label>
+                </p>
+            </form >   
+
+            <!--ボタンを並び替えボタンに変えて画面遷移を無くす-->
+            <input id="Button1" type="button" value="座席作成" onclick="sekimake();"/>
+            
+            <input id="Button2" input type="button"  value="リセット" onclick="koshin()">
+            
+            <table id='data-table'>
+            </table>
+
+            
+
+<script>
+
+        var nameText = document.getElementById('nameText');
+
+        //座席数を必要数だす
+        function namein(){
+            //var sekisum = lineText * columnText;
+            var sekisum = value1 * value2;
+            return sekisum;
+        }
+
+
+        //更新
+        function koshin(){
+            location.reload();
+        }
+
+
+        function sekimake(){
+
+            //セレクトボックス行の新しい値を取得する
+            var j = document.getElementById('columnText');
+            j = j.value;
+  
+            //セレクトボックス列の新しい値を取得する
+            var i = document.getElementById('lineText');
+            i = i.value;
+       
+
+            
+
+            //重複チェックしながら乱数作成、１から最大数までの値を配列に格納
+            var randoms = [];
+            var tableEle = document.getElementById('data-table');
+
+            for(var con = 0; con < i*j; con++){
+                while(true){
+                var tmp = Math.floor(Math.random() * (i*j+1-1)+1);
+                    if(!randoms.includes(tmp)){
+                        randoms.push(tmp);
+                        break;
+                    }
+                }
+            }
+
+
+            var x = 0;
+
+            for (var t = 0; t < i; t++) {
+                
+            // テーブルの行を追加する
+                var tr = document.createElement('tr');
+                //指定した要素を生成する、tr変数にtr要素を入れる
+                for (var r = 0; r < j; r++) {
+                    
+                // テーブルの列を追加する
+                    var td = document.createElement('td');
+                    td.innerHTML = randoms[x]+'番';
+                    tr.appendChild(td);
+                    x++;
+                }
+                tableEle.appendChild(tr);
+            }
+            tableEle.innerHTML += "<br>";
+        }
+
+</script>
+
+</body>
+</html>
